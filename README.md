@@ -1,6 +1,5 @@
 # Pramanik - Blockchain-Powered Certificate Generation & Verification
 
-![Pramanik Logo](https://your-logo-url.com)
 
 ## 🚀 About Pramanik
 Pramanik is an advanced **Blockchain & AI-powered** certificate generation and verification platform designed for secure, tamper-proof, and seamless document management. It revolutionizes how certificates are issued, stored, shared, and verified by leveraging cutting-edge **Blockchain technology** for decentralized storage and **AI-driven** verification for document authenticity.
@@ -18,7 +17,7 @@ Pramanik is an advanced **Blockchain & AI-powered** certificate generation and v
 ## 📌 Platform Workflow
 Below is the visual representation of how the **Issuing Authority, Individual Users, and Verifying Authority** dashboards interact:
 
-![Pramanik Workflow](flowchart.png)
+![Pramanik Workflow](Flowchart.png)
 
 ## 🏛️ Role-Based Dashboards
 1. **Issuing Authority Dashboard**
