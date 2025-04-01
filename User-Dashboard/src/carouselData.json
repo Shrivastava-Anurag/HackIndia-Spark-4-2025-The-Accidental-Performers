@@ -1,0 +1,23 @@
+[
+    {
+      "id": "DOC001",
+      "name": "Birth Certificate"
+    },
+    {
+      "id": "DOC002",
+      "name": "Aadhaar Card"
+    },
+    {
+      "id": "DOC003",
+      "name": "Passport"
+    },
+    {
+      "id": "DOC004",
+      "name": "Driving License"
+    },
+    {
+      "id": "DOC005",
+      "name": "Pan Card"
+    }
+  ]
+  
