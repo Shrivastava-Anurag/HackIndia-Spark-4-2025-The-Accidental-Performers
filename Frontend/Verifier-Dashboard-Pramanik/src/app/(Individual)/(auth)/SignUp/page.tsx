@@ -61,7 +61,7 @@ const SignupPage = () => {
 
     try {
       const response = await fetch(
-        "https://hello-5tgi.onrender.com/user/signup",
+        "https://backendpramanik.onrender.com/user/signup",
         {
           method: "POST",
           headers: {

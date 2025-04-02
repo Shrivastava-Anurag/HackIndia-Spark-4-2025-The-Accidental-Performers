@@ -1,59 +1,5 @@
-// import { TextractClient, AnalyzeDocumentCommand } from "@aws-sdk/client-textract";
-
-// const textractClient = new TextractClient({
-//   region: "us-east-1", // Replace with your region
-//   credentials: {
-//     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-//     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-//   },
-// });
-
-// export const POST = async (req) => {
-//   try {
-//     const body = await req.json(); // Parse request body
-//     const { base64Image } = body;
-
-//     if (!base64Image) {
-//       return new Response(JSON.stringify({ error: "Image is required" }), {
-//         status: 400,
-//         headers: { "Content-Type": "application/json" },
-//       });
-//     }
-
-//     // Decode the base64 image
-//     const buffer = Buffer.from(base64Image, "base64");
-
-//     // Prepare the AnalyzeDocument command
-//     const command = new AnalyzeDocumentCommand({
-//       Document: {
-//         Bytes: buffer, // Pass the image buffer
-//       },
-//       FeatureTypes: ["FORMS", "TABLES"], // Specify the feature types you need
-//     });
-
-//     // Send the command to Textract
-//     const response = await textractClient.send(command);
-
-//     return new Response(JSON.stringify(response), {
-//       status: 200,
-//       headers: { "Content-Type": "application/json" },
-//     });
-//   } catch (error) {
-//     console.error("Error processing image:", error);
-
-//     return new Response(
-//       JSON.stringify({ error: error.message }),
-//       {
-//         status: 500,
-//         headers: { "Content-Type": "application/json" },
-//       }
-//     );
-//   }
-// };
-
 import OpenAI from 'openai';
 
-// Initialize OpenAI client
 const openai = new OpenAI({
   apiKey: "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",
 });
@@ -73,8 +19,9 @@ export const POST = async (req) => {
     // Create a data URL for the image
     const dataURI = `data:image/jpeg;base64,${base64Image}`;
 
+    // Using the current model with vision capabilities (as of April 2025)
     const response = await openai.chat.completions.create({
-      model: "gpt-4-vision-preview",
+      model: "gpt-4o", // Updated to use GPT-4o which has vision capabilities
       messages: [
         {
           role: "user",
@@ -95,8 +42,6 @@ export const POST = async (req) => {
       max_tokens: 1000
     });
 
-    // Transform the OpenAI response to match the format expected by the frontend
-    // This mimics the Textract response structure needed by the frontend
     const textractStyleResponse = transformToTextractFormat(response.choices[0].message.content);
 
     return new Response(JSON.stringify(textractStyleResponse), {
@@ -105,6 +50,7 @@ export const POST = async (req) => {
     });
   } catch (error) {
     console.error("Error processing image:", error);
+    console.error("Full error details:", error);
 
     return new Response(
       JSON.stringify({ error: error.message }),

@@ -1,4 +1,4 @@
-import Header from "../../verifier-components/header";
+import Header from "@/app/verifier-components/header";
 import Sidebar from "@/app/verifier-components/sidebar";
 import { Toaster } from "@/components/ui/toaster"
 

@@ -16,7 +16,7 @@ function Page() {
   //   const fetchData = async () => {
   //     try {
   //       setIsLoading(true);
-  //               const response = await fetch("https://hello-5tgi.onrender.com/verifier/getAllLead", {
+  //               const response = await fetch("https://backendpramanik.onrender.com/verifier/getAllLead", {
   //         method: "GET",
   //         headers: {
   //           Authorization: token,
