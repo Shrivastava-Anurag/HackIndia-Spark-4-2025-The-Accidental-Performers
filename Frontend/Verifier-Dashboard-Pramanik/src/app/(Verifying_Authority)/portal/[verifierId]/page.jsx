@@ -29,7 +29,7 @@ const MultiStepForm = () => {
   const [preview1, setPreview1] = useState("");
   const [preview2, setPreview2] = useState("");
 
-  // Extract documents from URL
+  // Extract documents 
   const documents = JSON.parse(searchParams.get("documents") || "[]");
   console.log(documents)
 
